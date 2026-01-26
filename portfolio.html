@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LSR Media Portfolio - View our real estate photography, drone shots, virtual tours, and cinematic reels">
+  <title>Portfolio | LSR Media</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        LSR<span>MEDIA</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html" class="active">Portfolio</a>
+        <a href="about.html">About</a>
+        <a href="book.html" class="btn btn-primary btn-small">Book Now</a>
+      </nav>
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div class="mobile-overlay"></div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Our Portfolio</h1>
+      <p class="hero-subtitle">Browse our recent work across Adelaide</p>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section class="section">
+    <div class="container">
+      <!-- Filter Buttons -->
+      <div class="portfolio-filters fade-in">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="aerial">Aerial</button>
+        <button class="filter-btn" data-filter="floorplan">Floor Plans</button>
+        <button class="filter-btn" data-filter="reel">Reels</button>
+        <button class="filter-btn" data-filter="virtualtour">Virtual Tours</button>
+        <button class="filter-btn" data-filter="photography">Photography</button>
+      </div>
+
+      <!-- Portfolio Grid -->
+      <div class="portfolio-grid">
+        <!-- Aerial Items -->
+        <div class="portfolio-item fade-in" data-category="aerial">
+          <div class="portfolio-placeholder">Aerial Shot - Beachfront Estate</div>
+          <div class="portfolio-overlay">
+            <h4>Beachfront Estate</h4>
+            <span>Aerial Photography</span>
+          </div>
+        </div>
+        <div class="portfolio-item fade-in" data-category="aerial">
+          <div class="portfolio-placeholder">Aerial Shot - Rural Property</div>
+          <div class="portfolio-overlay">
+            <h4>Rural Retreat</h4>
+            <span>Aerial Photography</span>
+          </div>
+        </div>
+        <div class="portfolio-item fade-in" data-category="aerial">
+          <div class="portfolio-placeholder">Aerial Shot - City Penthouse</div>
+          <div class="portfolio-overlay">
+            <h4>City Penthouse</h4>
+            <span>Aerial Photography</span>
+          </div>
+        </div>
+
+        <!-- Floor Plan Items -->
+        <div class="portfolio-item fade-in" data-category="floorplan">
+          <div class="portfolio-placeholder">3D Floor Plan - Modern Home</div>
+          <div class="portfolio-overlay">
+            <h4>Modern Family Home</h4>
+            <span>3D Floor Plan</span>
+          </div>
+        </div>
+        <div class="portfolio-item fade-in" data-category="floorplan">
+          <div class="portfolio-placeholder">3D Floor Plan - Apartment</div>
+          <div class="portfolio-overlay">
+            <h4>Luxury Apartment</h4>
+            <span>3D Floor Plan</span>
+          </div>
+        </div>
+
+        <!-- Reel Items -->
+        <div class="portfolio-item fade-in" data-category="reel">
+          <div class="portfolio-placeholder">Cinematic Reel - Waterfront</div>
+          <div class="portfolio-overlay">
+            <h4>Waterfront Villa</h4>
+            <span>Cinematic Reel</span>
+          </div>
+        </div>
+        <div class="portfolio-item fade-in" data-category="reel">
+          <div class="portfolio-placeholder">Cinematic Reel - Heritage</div>
+          <div class="portfolio-overlay">
+            <h4>Heritage Restoration</h4>
+            <span>Cinematic Reel</span>
+          </div>
+        </div>
+        <div class="portfolio-item fade-in" data-category="reel">
+          <div class="portfolio-placeholder">Cinematic Reel - New Build</div>
+          <div class="portfolio-overlay">
+            <h4>Contemporary New Build</h4>
+            <span>Cinematic Reel</span>
+          </div>
+        </div>
+
+        <!-- Virtual Tour Items -->
+        <div class="portfolio-item fade-in" data-category="virtualtour">
+          <div class="portfolio-placeholder">Virtual Tour - Mansion</div>
+          <div class="portfolio-overlay">
+            <h4>Grand Mansion</h4>
+            <span>Virtual Tour</span>
+          </div>
+        </div>
+        <div class="portfolio-item fade-in" data-category="virtualtour">
+          <div class="portfolio-placeholder">Virtual Tour - Townhouse</div>
+          <div class="portfolio-overlay">
+            <h4>Modern Townhouse</h4>
+            <span>Virtual Tour</span>
+          </div>
+        </div>
+
+        <!-- Photography Items -->
+        <div class="portfolio-item fade-in" data-category="photography">
+          <div class="portfolio-placeholder">Photography - Living Room</div>
+          <div class="portfolio-overlay">
+            <h4>Elegant Living Space</h4>
+            <span>Photography</span>
+          </div>
+        </div>
+        <div class="portfolio-item fade-in" data-category="photography">
+          <div class="portfolio-placeholder">Photography - Kitchen</div>
+          <div class="portfolio-overlay">
+            <h4>Designer Kitchen</h4>
+            <span>Photography</span>
+          </div>
+        </div>
+        <div class="portfolio-item fade-in" data-category="photography">
+          <div class="portfolio-placeholder">Photography - Exterior</div>
+          <div class="portfolio-overlay">
+            <h4>Twilight Exterior</h4>
+            <span>Photography</span>
+          </div>
+        </div>
+        <div class="portfolio-item fade-in" data-category="photography">
+          <div class="portfolio-placeholder">Photography - Pool Area</div>
+          <div class="portfolio-overlay">
+            <h4>Pool & Entertainment</h4>
+            <span>Photography</span>
+          </div>
+        </div>
+        <div class="portfolio-item fade-in" data-category="photography">
+          <div class="portfolio-placeholder">Photography - Bedroom</div>
+          <div class="portfolio-overlay">
+            <h4>Master Suite</h4>
+            <span>Photography</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Ready to Showcase Your Property?</h2>
+      <p>Let us create stunning visuals that help your listing stand out</p>
+      <a href="book.html" class="btn btn-secondary">Book Your Shoot</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="logo">LSR<span>MEDIA</span></div>
+          <p>Premium real estate media services in Adelaide. We help agents and homeowners showcase properties at their absolute best.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="about.html">About</a>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <a href="services.html#aerial">Aerial Photography</a>
+          <a href="services.html#floorplan">3D Floor Plans</a>
+          <a href="services.html#reel">Cinematic Reels</a>
+          <a href="services.html#virtualtour">Virtual Tours</a>
+        </div>
+        <div class="footer-links">
+          <h4>Contact</h4>
+          <a href="mailto:hello@lsrmedia.com.au">hello@lsrmedia.com.au</a>
+          <a href="tel:+61400000000">0400 000 000</a>
+          <a href="#">Adelaide, SA</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 LSR Media. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <div class="lightbox-content"></div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
