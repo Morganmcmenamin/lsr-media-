@@ -13,8 +13,8 @@
   const CONFIG = {
     // n8n Webhook URLs
     webhooks: {
-      getAvailability: 'https://morganmc.app.n8n.cloud/webhook-test/8e3eeb1c-0c98-4271-9ef7-71d9d04456d7',
-      createBooking: 'YOUR_N8N_WEBHOOK_URL_FOR_CREATE_BOOKING'
+      getAvailability: 'https://morganmc.app.n8n.cloud/webhook/8e3eeb1c-0c98-4271-9ef7-71d9d04456d7',
+      createBooking: 'https://morganmc.app.n8n.cloud/webhook/605ab475-ccb0-4be5-ac1f-f3279c8aa9ed'
     },
     // Booking hours: 8am - 6pm (5 slots per day)
     slots: [
