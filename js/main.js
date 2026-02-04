@@ -203,4 +203,54 @@
 
   setActiveNavLink();
 
+  // ============================================
+  // Property Tabs (Services Page)
+  // ============================================
+
+  const tabButtons = document.querySelectorAll('.property-tab-btn');
+  const servicesContainers = document.querySelectorAll('.services-container');
+  const ctaBanners = document.querySelectorAll('.cta-banner[data-cta]');
+
+  function switchPropertyTab(tabName) {
+    // Toggle active class on buttons
+    tabButtons.forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.tab === tabName);
+    });
+
+    // Toggle containers
+    servicesContainers.forEach(container => {
+      const isTarget = container.dataset.services === tabName;
+      container.classList.toggle('hidden', !isTarget);
+
+      // Re-observe fade-in elements in newly visible container
+      if (isTarget) {
+        container.querySelectorAll('.fade-in').forEach(el => {
+          el.classList.remove('visible');
+          observer.observe(el);
+        });
+      }
+    });
+
+    // Toggle CTA banners
+    ctaBanners.forEach(banner => {
+      banner.classList.toggle('hidden', banner.dataset.cta !== tabName);
+    });
+
+    // Scroll to tabs section
+    const tabsSection = document.getElementById('property-tabs');
+    if (tabsSection) {
+      const headerHeight = header?.offsetHeight || 80;
+      window.scrollTo({
+        top: tabsSection.offsetTop - headerHeight,
+        behavior: 'smooth'
+      });
+    }
+  }
+
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      switchPropertyTab(btn.dataset.tab);
+    });
+  });
+
 })();
