@@ -630,13 +630,46 @@ p {
 
 /* Page Hero (for inner pages) */
 .page-hero {
-  padding: calc(var(--header-height) + var(--spacing-3xl)) 0 var(--spacing-3xl);
+  padding: calc(var(--header-height) + var(--spacing-xl)) 0 var(--spacing-lg);
   background: linear-gradient(to bottom, var(--color-dark-gray), var(--color-black));
   text-align: center;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 1;
+}
+
+.page-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.page-hero--services {
+  background-image: url('../assets/hero-services.jpg');
+  background-position: center 60%;
+}
+
+.page-hero--portfolio {
+  background-image: url('../assets/hero-portfolio.jpg');
+  background-position: center center;
+}
+
+.page-hero--about {
+  background-image: url('../assets/hero-about.jpg');
+  background-position: center 60%;
 }
 
 .page-hero h1 {
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
 }
 
 /* ============================================
@@ -786,7 +819,7 @@ p {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--spacing-2xl);
-  align-items: center;
+  align-items: start;
 }
 
 .service-detail:nth-child(even) .service-detail-content {
@@ -799,7 +832,7 @@ p {
 
 .service-detail-image {
   aspect-ratio: 4/3;
-  background-color: var(--color-gray);
+  background-color: #000;
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -809,18 +842,18 @@ p {
 }
 
 .service-detail-text h2 {
-  margin-bottom: var(--spacing-md);
+  margin-bottom: 0.25rem;
 }
 
 .service-detail-text p {
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-xs);
 }
 
 .service-detail-price {
   font-size: 2rem;
   font-weight: 700;
   color: var(--color-red);
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-xs);
 }
 
 .service-features {
@@ -1814,36 +1847,37 @@ p {
 
 .property-tabs-section {
   position: sticky;
-  top: var(--header-height);
+  top: 0;
   z-index: 100;
-  background-color: var(--color-dark-gray);
-  border-bottom: 1px solid var(--color-border);
-  padding: var(--spacing-md) 0;
+  background-color: var(--color-black);
+  border-bottom: 2px solid var(--color-border);
+  padding: var(--spacing-lg) 0;
 }
 
 .property-tabs {
   display: flex;
   justify-content: center;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-md);
 }
 
 .property-tab-btn {
-  padding: 0.75rem 2rem;
+  padding: 1rem 2.5rem;
   border-radius: 50px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--color-white);
-  background-color: transparent;
-  border: 1px solid var(--color-border);
+  background-color: var(--color-gray);
+  border: 2px solid var(--color-light-gray);
   transition: all var(--transition-fast);
   cursor: pointer;
 }
 
 .property-tab-btn:hover {
   border-color: var(--color-red);
-  color: var(--color-red);
+  background-color: rgba(229, 57, 53, 0.15);
+  color: var(--color-white);
 }
 
 .property-tab-btn.active {
@@ -1883,4 +1917,110 @@ p {
     width: 100%;
     max-width: 280px;
   }
+}
+
+/* ============================================
+   Quote Page - Contact Details & Radio Group
+   ============================================ */
+
+.quote-contact-details {
+  background-color: var(--color-dark-gray);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+.quote-contact-details h3 {
+  margin-bottom: var(--spacing-xs);
+}
+
+.quote-contact-details > p {
+  margin-bottom: var(--spacing-lg);
+}
+
+.contact-info-items {
+  display: flex;
+  gap: var(--spacing-xl);
+  flex-wrap: wrap;
+}
+
+.contact-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contact-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-light-gray);
+}
+
+.contact-value {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-white);
+  transition: color var(--transition-fast);
+}
+
+a.contact-value:hover {
+  color: var(--color-red);
+}
+
+.radio-group {
+  display: flex;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+  padding-top: var(--spacing-xs);
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  cursor: pointer;
+  font-weight: 400;
+  color: var(--color-white);
+}
+
+.radio-label input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-red);
+  cursor: pointer;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.checkbox-label {
+  padding: 0.5rem 1.2rem;
+  border: 1px solid var(--color-border);
+  border-radius: 50px;
+  background: transparent;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-white);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.checkbox-label input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox-label:hover {
+  border-color: var(--color-red);
+}
+
+.checkbox-label:has(input:checked) {
+  background-color: var(--color-red);
+  border-color: var(--color-red);
 }

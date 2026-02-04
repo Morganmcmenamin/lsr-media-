@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Request a quote for commercial media services from LSR Media">
+  <title>Request a Quote | LSR Media</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.png" alt="LSR Media" class="logo-img">
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="about.html">About</a>
+        <a href="book.html" class="btn btn-primary btn-small">Book Now</a>
+      </nav>
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div class="mobile-overlay"></div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Request a Quote</h1>
+      <p class="hero-subtitle">Get a tailored quote for your commercial project</p>
+    </div>
+  </section>
+
+  <!-- Quote Content -->
+  <section class="section">
+    <div class="container" style="max-width: 800px;">
+
+      <!-- Contact Details -->
+      <div class="quote-contact-details">
+        <h3>Get in Touch</h3>
+        <p>Have questions before requesting a quote? Reach out directly.</p>
+        <div class="contact-info-items">
+          <div class="contact-info-item">
+            <span class="contact-label">Name</span>
+            <span class="contact-value">Logan</span>
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-label">Email</span>
+            <a href="mailto:logan@lsrmedia.co.nz" class="contact-value">logan@lsrmedia.co.nz</a>
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-label">Phone</span>
+            <a href="tel:0225068721" class="contact-value">022 506 8721</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quote Form -->
+      <form class="booking-form" action="https://formsubmit.co/morganmcmenamin2@outlook.com" method="POST">
+        <!-- Formsubmit.co hidden fields -->
+        <input type="hidden" name="_subject" value="New Quote Request">
+        <input type="hidden" name="services" id="services-combined" value="">
+        <input type="hidden" name="_next" value="https://lsrmedia.co.nz/services.html">
+        <input type="hidden" name="_captcha" value="true">
+
+        <h3 style="margin-bottom: var(--spacing-lg);">Quote Request Form</h3>
+
+        <div class="form-group">
+          <label>Services Interested In</label>
+          <div class="checkbox-group" id="service-checkboxes">
+            <label class="checkbox-label">
+              <input type="checkbox" name="_services" value="Photography">
+              <span>Photography</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="_services" value="Aerial Photography">
+              <span>Aerial Photography</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="_services" value="Social Media Reel">
+              <span>Social Media Reel</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="_services" value="Graphic Design">
+              <span>Graphic Design</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="_services" value="Booklets & Pamphlets">
+              <span>Booklets &amp; Pamphlets</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="_services" value="Building Signage">
+              <span>Building Signage</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="_services" value="Virtual Tour">
+              <span>Virtual Tour</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="_services" value="3D Floor Plan">
+              <span>3D Floor Plan</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name <span class="required">*</span></label>
+            <input type="text" id="name" name="name" required placeholder="Your full name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required placeholder="your@email.com">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number <span class="required">*</span></label>
+          <input type="tel" id="phone" name="phone" required placeholder="e.g. 021 123 4567">
+        </div>
+
+        <div class="form-group">
+          <label>Preferred Contact Method</label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="contact_method" value="Email" checked>
+              <span>Email</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="contact_method" value="Phone">
+              <span>Phone</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="contact_method" value="Either">
+              <span>Either</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us about your project, timeline, or any specific requirements..."></textarea>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="btn btn-primary">Submit Quote Request</button>
+        </div>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="logo"><img src="assets/images/logo.png" alt="LSR Media" class="logo-img"></div>
+          <p>Premium real estate media services in Wellington. We help agents and homeowners showcase properties at their absolute best.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="about.html">About</a>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <a href="services.html#aerial">Aerial Photography</a>
+          <a href="services.html#floorplan">3D Floor Plans</a>
+          <a href="services.html#reel">Cinematic Reels</a>
+          <a href="services.html#virtualtour">Virtual Tours</a>
+        </div>
+        <div class="footer-links">
+          <h4>Contact</h4>
+          <a href="mailto:logan@lsrmedia.co.nz">logan@lsrmedia.co.nz</a>
+          <a href="tel:0225068721">022 506 8721</a>
+          <a href="#">Wellington, New Zealand</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 LSR Media. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.querySelector('.booking-form').addEventListener('submit', function() {
+      const checked = document.querySelectorAll('input[name="_services"]:checked');
+      const values = Array.from(checked).map(cb => cb.value);
+      document.getElementById('services-combined').value = values.join(', ');
+    });
+  </script>
+</body>
+</html>

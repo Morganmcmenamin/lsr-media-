@@ -253,4 +253,30 @@
     });
   });
 
+  // ============================================
+  // Quote Page - Pre-select service from URL param
+  // ============================================
+
+  const serviceMap = {
+    'commercial-photography': 'Photography',
+    'commercial-aerial': 'Aerial Photography',
+    'commercial-reel': 'Social Media Reel',
+    'commercial-graphic-design': 'Graphic Design',
+    'commercial-booklets': 'Booklets & Pamphlets',
+    'commercial-signage': 'Building Signage',
+    'commercial-virtualtour': 'Virtual Tour',
+    'commercial-floorplan': '3D Floor Plan'
+  };
+
+  const serviceCheckboxes = document.querySelector('#service-checkboxes');
+  if (serviceCheckboxes) {
+    const params = new URLSearchParams(window.location.search);
+    const serviceParam = params.get('service');
+    if (serviceParam && serviceMap[serviceParam]) {
+      const targetValue = serviceMap[serviceParam];
+      const checkbox = serviceCheckboxes.querySelector(`input[value="${targetValue}"]`);
+      if (checkbox) checkbox.checked = true;
+    }
+  }
+
 })();
