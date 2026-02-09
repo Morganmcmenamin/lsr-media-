@@ -279,4 +279,33 @@
     }
   }
 
+  // ============================================
+  // Booking Page - ?type= tab switching & commercial pre-select
+  // ============================================
+
+  const bookingParams = new URLSearchParams(window.location.search);
+  const typeParam = bookingParams.get('type');
+  const serviceParam = bookingParams.get('service');
+
+  // Auto-switch to commercial tab if ?type=commercial
+  if (typeParam === 'commercial' && tabButtons.length > 0) {
+    switchPropertyTab('commercial');
+  }
+
+  // Pre-check commercial checkbox if ?service=commercial-*
+  const commercialCheckboxes = document.querySelector('#commercial-service-checkboxes');
+  if (commercialCheckboxes && serviceParam && serviceMap[serviceParam]) {
+    const targetValue = serviceMap[serviceParam];
+    const checkbox = commercialCheckboxes.querySelector(`input[value="${targetValue}"]`);
+    if (checkbox) checkbox.checked = true;
+  }
+
+  // Commercial quote form submit handler — combine checked services into hidden field
+  const commercialQuoteForm = document.getElementById('commercial-quote-form');
+  commercialQuoteForm?.addEventListener('submit', function() {
+    const checked = commercialQuoteForm.querySelectorAll('input[name="_services"]:checked');
+    const values = Array.from(checked).map(cb => cb.value);
+    document.getElementById('commercial-services-combined').value = values.join(', ');
+  });
+
 })();

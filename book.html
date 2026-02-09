@@ -41,6 +41,19 @@
     </div>
   </section>
 
+  <!-- Property Type Tabs -->
+  <section class="property-tabs-section" id="property-tabs">
+    <div class="container">
+      <div class="property-tabs">
+        <button class="property-tab-btn active" data-tab="residential">Residential</button>
+        <button class="property-tab-btn" data-tab="commercial">Commercial</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Residential Services -->
+  <div class="services-container" data-services="residential">
+
   <!-- Booking Section -->
   <section class="section">
     <div class="container">
@@ -186,6 +199,129 @@
       </div>
     </div>
   </div>
+
+  </div><!-- /.services-container[residential] -->
+
+  <!-- Commercial Services -->
+  <div class="services-container hidden" data-services="commercial">
+    <section class="section">
+      <div class="container" style="max-width: 800px;">
+
+        <!-- Contact Details -->
+        <div class="quote-contact-details">
+          <h3>Get in Touch</h3>
+          <p>Have questions before requesting a quote? Reach out directly.</p>
+          <div class="contact-info-items">
+            <div class="contact-info-item">
+              <span class="contact-label">Name</span>
+              <span class="contact-value">Logan</span>
+            </div>
+            <div class="contact-info-item">
+              <span class="contact-label">Email</span>
+              <a href="mailto:logan@lsrmedia.co.nz" class="contact-value">logan@lsrmedia.co.nz</a>
+            </div>
+            <div class="contact-info-item">
+              <span class="contact-label">Phone</span>
+              <a href="tel:0225068721" class="contact-value">022 506 8721</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Commercial Quote Form -->
+        <form class="booking-form" id="commercial-quote-form" action="https://formsubmit.co/morganmcmenamin2@outlook.com" method="POST">
+          <!-- Formsubmit.co hidden fields -->
+          <input type="hidden" name="_subject" value="New Commercial Quote Request (Booking Page)">
+          <input type="hidden" name="services" id="commercial-services-combined" value="">
+          <input type="hidden" name="_next" value="https://lsrmedia.co.nz/book.html?type=commercial">
+          <input type="hidden" name="_captcha" value="true">
+
+          <h3 style="margin-bottom: var(--spacing-lg);">Quote Request Form</h3>
+
+          <div class="form-group">
+            <label>Services Interested In</label>
+            <div class="checkbox-group" id="commercial-service-checkboxes">
+              <label class="checkbox-label">
+                <input type="checkbox" name="_services" value="Photography">
+                <span>Photography</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="_services" value="Aerial Photography">
+                <span>Aerial Photography</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="_services" value="Social Media Reel">
+                <span>Social Media Reel</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="_services" value="Graphic Design">
+                <span>Graphic Design</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="_services" value="Booklets & Pamphlets">
+                <span>Booklets &amp; Pamphlets</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="_services" value="Building Signage">
+                <span>Building Signage</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="_services" value="Virtual Tour">
+                <span>Virtual Tour</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="_services" value="3D Floor Plan">
+                <span>3D Floor Plan</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="commercial-name">Full Name <span class="required">*</span></label>
+              <input type="text" id="commercial-name" name="name" required placeholder="Your full name">
+            </div>
+            <div class="form-group">
+              <label for="commercial-email">Email Address <span class="required">*</span></label>
+              <input type="email" id="commercial-email" name="email" required placeholder="your@email.com">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="commercial-phone">Phone Number <span class="required">*</span></label>
+            <input type="tel" id="commercial-phone" name="phone" required placeholder="e.g. 021 123 4567">
+          </div>
+
+          <div class="form-group">
+            <label>Preferred Contact Method</label>
+            <div class="radio-group">
+              <label class="radio-label">
+                <input type="radio" name="contact_method" value="Email" checked>
+                <span>Email</span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="contact_method" value="Phone">
+                <span>Phone</span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="contact_method" value="Either">
+                <span>Either</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="commercial-message">Message</label>
+            <textarea id="commercial-message" name="message" placeholder="Tell us about your project, timeline, or any specific requirements..."></textarea>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn btn-primary">Submit Quote Request</button>
+          </div>
+        </form>
+
+      </div>
+    </section>
+  </div><!-- /.services-container[commercial] -->
 
   <!-- Footer -->
   <footer class="footer">
