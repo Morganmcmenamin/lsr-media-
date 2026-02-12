@@ -4,51 +4,73 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-LSR Media is a static marketing website for a real estate media company based in Wellington, New Zealand. The business offers photography, drone/aerial, video, virtual tours, and floor plans for residential properties, plus additional commercial services (graphic design, signage, booklets).
+LSR Media is a static marketing website for a real estate media company based in Wellington, New Zealand. Offers photography, drone/aerial, video, virtual tours, and floor plans for residential properties, plus commercial services (graphic design, signage, booklets).
+
+## Development
+
+No build tools, bundlers, or frameworks. Preview with:
+
+```
+python3 -m http.server
+```
+
+Then open `http://localhost:8000` in a browser.
 
 ## Architecture
 
-This is a **plain HTML/CSS/JS site** with no build tools, bundlers, or frameworks. To preview, open any `.html` file directly in a browser or use a local server (`python3 -m http.server`).
-
-### Pages
+### Pages (6 HTML files)
 
 - `index.html` — Homepage with hero video, service cards, trusted-by carousel
-- `services.html` — Residential/Commercial tab toggle (sticky tabs, `data-tab`/`data-services` attributes, JS in `main.js`)
-- `portfolio.html` — Filterable image gallery with lightbox (`data-category`/`data-filter` attributes)
+- `services.html` — Residential/Commercial tab toggle
+- `portfolio.html` — Filterable image gallery with lightbox
 - `about.html` — Mission statement + team bios
-- `book.html` — Residential booking flow: service selection cards, bundle pricing, form submission redirects to Cal.com
-- `quote.html` — Commercial quote form, submits via FormSubmit.co to email
+- `book.html` — Residential booking flow + embedded commercial quote form
+- `quote.html` — Standalone commercial quote form
 
 ### JavaScript
 
-- `js/main.js` — Shared across all pages. Handles: sticky header, mobile hamburger menu, scroll-based fade-in animations (IntersectionObserver), portfolio filtering/lightbox, services page tab switching, quote page URL param pre-selection.
-- `js/booking.js` — Only loaded on `book.html`. Handles: service selection state, bundle pricing calculation from a lookup table (`bundlePrices`), large property surcharge (+$50), sticky cart bar, form validation, and Cal.com redirect URL construction with pre-filled parameters.
+- `js/main.js` — Loaded on all pages. Sticky header, mobile menu, scroll fade-in animations (IntersectionObserver), portfolio filter/lightbox, services tab switching, quote page URL param pre-selection.
+- `js/booking.js` — Only on `book.html`. Service selection state, bundle pricing from lookup table (`bundlePrices`), large property surcharge (+$50), sticky cart bar, form validation, Cal.com redirect URL construction.
 
 ### CSS
 
-- `css/style.css` — Single stylesheet. Uses CSS custom properties (`:root` variables) for colors, spacing, and typography. Dark theme (black/dark-gray background, white text, red `#E53935` accent). Font: Inter via Google Fonts. Responsive breakpoints at 1024px, 768px, 480px.
+- `css/style.css` (~2050 lines) — Single stylesheet. CSS custom properties for theming. Responsive breakpoints at 1024px, 768px, 480px.
 
-### Key Patterns
+## Critical Patterns
 
-- **Header/footer are duplicated** in every HTML file (no templating). Changes to nav or footer must be applied to all 6 pages.
-- **Residential vs Commercial** services are split via `data-services="residential"` / `data-services="commercial"` containers on `services.html`, toggled by `property-tab-btn` buttons.
-- **Residential booking** uses fixed prices with a bundle discount lookup table in `booking.js`. Commercial services use "Get a Quote" / "From $X" pricing and link to `quote.html`.
-- **Service deep-linking**: `book.html?service=aerial` pre-selects a service. `quote.html?service=commercial-photography` pre-checks the corresponding checkbox.
-- **Animations**: Elements with class `fade-in` animate in via IntersectionObserver adding class `visible`. Staggered delays via `fade-in-delay-1/2/3`.
-- **Form submissions**: `book.html` redirects to Cal.com with query params. `quote.html` POSTs to FormSubmit.co.
+### Header/footer are duplicated in every HTML file
 
-### Assets
+There is no templating. Any change to navigation or footer **must be applied to all 6 pages** manually.
 
-- `assets/images/logo.png` — Site logo
-- `assets/video/hero-video.mp4` — Homepage hero background video
-- `assets/portfolio/` — Portfolio gallery images
-- Other `assets/*.jpg` / `*.png` — Service detail images, hero backgrounds, team photos
+### Two form submission backends
+
+- **Residential booking** (`book.html`): JS builds a URL with query params and redirects to the appropriate `cal.com/lsrmedia/booking-page-{duration}-mins` event type based on selected services
+- **Commercial quotes** (`quote.html` and the commercial section of `book.html`): POST to `https://formsubmit.co/morganmcmenamin2@outlook.com`
+
+### Residential vs Commercial split
+
+- `services.html`: `data-services="residential"` / `data-services="commercial"` containers toggled by `.property-tab-btn` buttons with `data-tab` attribute.
+- `book.html`: Also has residential/commercial sections — residential uses JS booking flow, commercial uses FormSubmit.co form.
+
+### Bundle pricing
+
+`booking.js` has a flat lookup table (`bundlePrices`) mapping every combination of the 5 residential services (sorted alphabetically, comma-joined) to a bundle price. When adding/changing services, this table must be updated for all combinations.
+
+### Service deep-linking
+
+- `book.html?service=aerial` pre-selects a residential service card
+- `quote.html?service=commercial-photography` pre-checks the corresponding checkbox
+- `services.html` links use these params to send users to the right booking flow
+
+### Animations
+
+Elements with class `fade-in` animate in via IntersectionObserver adding class `visible`. Stagger with `fade-in-delay-1`, `fade-in-delay-2`, `fade-in-delay-3`.
 
 ## CSS Variables (Brand)
 
 ```
---color-red: #E53935 (primary accent)
---color-black: #000000 (page background)
+--color-red: #E53935       (primary accent)
+--color-black: #000000     (page background)
 --color-dark-gray: #1A1A1A (card/section backgrounds)
 --color-gray: #333333
 --color-light-gray: #888888 (secondary text)

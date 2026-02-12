@@ -10,8 +10,18 @@
   // Configuration
   // ============================================
 
-  const CONFIG = {
-    calComUrl: 'https://cal.com/morgan-mcmenamin-fxyxld/lsr-media-job'
+  // Cal.com event types by duration (minutes)
+  const calComUrls = {
+    15: 'https://cal.com/lsrmedia/booking-page-15-mins',
+    45: 'https://cal.com/lsrmedia/booking-page-45-mins',
+    50: 'https://cal.com/lsrmedia/booking-page-50-mins',
+    60: 'https://cal.com/lsrmedia/booking-page-60-mins',
+    70: 'https://cal.com/lsrmedia/booking-page-70-mins',
+    90: 'https://cal.com/lsrmedia/booking-page-90-mins',
+    115: 'https://cal.com/lsrmedia/booking-page-115-mins',
+    150: 'https://cal.com/lsrmedia/booking-page-150-mins',
+    180: 'https://cal.com/lsrmedia/booking-page-180-mins',
+    200: 'https://cal.com/lsrmedia/booking-page-200-mins'
   };
 
   // ============================================
@@ -24,6 +34,51 @@
     reel: { name: 'Cinematic Reel', price: 240 },
     virtualtour: { name: 'Virtual Tour', price: 250 },
     photography: { name: 'Classic Photoshoot', price: 300 }
+  };
+
+  // Bundle Duration Lookup Table (minutes, alphabetically sorted keys)
+  // Maps each service combo to a Cal.com event duration
+  const bundleDurations = {
+    // Singles
+    'aerial': 15,
+    'floorplan': 45,
+    'reel': 50,
+    'photography': 60,
+    'virtualtour': 90,
+
+    // 2-service
+    'aerial,floorplan': 90,
+    'aerial,photography': 70,
+    'aerial,reel': 70,
+    'aerial,virtualtour': 90,
+    'floorplan,photography': 90,
+    'floorplan,reel': 90,
+    'floorplan,virtualtour': 60,
+    'photography,reel': 90,
+    'photography,virtualtour': 115,
+    'reel,virtualtour': 115,
+
+    // 3-service
+    'aerial,floorplan,photography': 115,
+    'aerial,floorplan,reel': 115,
+    'aerial,floorplan,virtualtour': 115,
+    'aerial,photography,reel': 115,
+    'aerial,photography,virtualtour': 150,
+    'aerial,reel,virtualtour': 150,
+    'floorplan,photography,reel': 150,
+    'floorplan,photography,virtualtour': 115,
+    'floorplan,reel,virtualtour': 115,
+    'photography,reel,virtualtour': 150,
+
+    // 4-service
+    'aerial,floorplan,photography,reel': 180,
+    'aerial,floorplan,photography,virtualtour': 150,
+    'aerial,floorplan,reel,virtualtour': 150,
+    'aerial,photography,reel,virtualtour': 180,
+    'floorplan,photography,reel,virtualtour': 180,
+
+    // 5-service
+    'aerial,floorplan,photography,reel,virtualtour': 200
   };
 
   // Bundle Pricing Lookup Table (alphabetically sorted keys)
@@ -171,7 +226,13 @@
       notes: notesContent
     });
 
-    return `${CONFIG.calComUrl}?${params.toString()}`;
+    // Look up duration for this service combo and get the right Cal.com URL
+    const sortedForDuration = Array.from(selectedServices).sort();
+    const durationKey = sortedForDuration.join(',');
+    const duration = bundleDurations[durationKey];
+    const baseUrl = calComUrls[duration] || calComUrls[200];
+
+    return `${baseUrl}?${params.toString()}`;
   }
 
   function validateForm() {
