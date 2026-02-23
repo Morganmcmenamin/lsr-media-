@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lsrmedia.co.nz/sitemap.xml
