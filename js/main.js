@@ -14,6 +14,29 @@
   const navLinks = document.querySelector('.nav-links');
   const mobileOverlay = document.querySelector('.mobile-overlay');
   const fadeElements = document.querySelectorAll('.fade-in');
+
+  // ============================================
+  // Hero Video Autoplay (mobile fix)
+  // ============================================
+
+  const heroVideo = document.querySelector('.hero-video');
+  if (heroVideo) {
+    function tryPlayVideo() {
+      var playPromise = heroVideo.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(function() {
+          // Autoplay blocked — retry on first user interaction
+          document.addEventListener('touchstart', function onTouch() {
+            heroVideo.play();
+            document.removeEventListener('touchstart', onTouch);
+          }, { once: true });
+        });
+      }
+    }
+    // Try immediately, and again when enough data has loaded
+    tryPlayVideo();
+    heroVideo.addEventListener('canplay', tryPlayVideo, { once: true });
+  }
   const filterBtns = document.querySelectorAll('.filter-btn');
   const portfolioItems = document.querySelectorAll('.portfolio-item');
   const lightbox = document.querySelector('.lightbox');

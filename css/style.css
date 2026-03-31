@@ -417,6 +417,17 @@ p {
   z-index: -2;
 }
 
+/* Hide native video play button on iOS */
+.hero-video::-webkit-media-controls-panel,
+.hero-video::-webkit-media-controls-play-button,
+.hero-video::-webkit-media-controls-start-playback-button,
+.hero-video::-webkit-media-controls {
+  display: none !important;
+  -webkit-appearance: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 .hero-overlay {
   position: absolute;
   top: 0;
