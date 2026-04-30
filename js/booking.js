@@ -31,7 +31,7 @@
   const services = {
     aerial: { name: 'Aerial Photography', price: 175 },
     floorplan: { name: '3D Floor Plan', price: 200 },
-    reel: { name: 'Cinematic Reel', price: 240 },
+    reel: { name: 'Cinematic Reel', price: 320 },
     virtualtour: { name: 'Virtual Tour', price: 250 },
     photography: { name: 'Classic Photoshoot', price: 300 }
   };
@@ -87,42 +87,42 @@
     'aerial': 175,
     'floorplan': 200,
     'photography': 300,
-    'reel': 240,
+    'reel': 320,
     'virtualtour': 250,
 
     // 2-service bundles
     'aerial,floorplan': 330,
     'aerial,photography': 400,
-    'aerial,reel': 340,
+    'aerial,reel': 420,
     'aerial,virtualtour': 350,
     'floorplan,photography': 450,
-    'floorplan,reel': 375,
+    'floorplan,reel': 455,
     'floorplan,virtualtour': 375,
-    'photography,reel': 450,
+    'photography,reel': 530,
     'photography,virtualtour': 475,
-    'reel,virtualtour': 400,
+    'reel,virtualtour': 480,
 
     // 3-service bundles
     'aerial,floorplan,photography': 550,
-    'aerial,floorplan,reel': 500,
+    'aerial,floorplan,reel': 580,
     'aerial,floorplan,virtualtour': 500,
-    'aerial,photography,reel': 620,
+    'aerial,photography,reel': 700,
     'aerial,photography,virtualtour': 575,
-    'aerial,reel,virtualtour': 525,
-    'floorplan,photography,reel': 650,
+    'aerial,reel,virtualtour': 605,
+    'floorplan,photography,reel': 730,
     'floorplan,photography,virtualtour': 600,
-    'floorplan,reel,virtualtour': 500,
-    'photography,reel,virtualtour': 600,
+    'floorplan,reel,virtualtour': 580,
+    'photography,reel,virtualtour': 680,
 
     // 4-service bundles
-    'aerial,floorplan,photography,reel': 750,
+    'aerial,floorplan,photography,reel': 830,
     'aerial,floorplan,photography,virtualtour': 725,
-    'aerial,floorplan,reel,virtualtour': 650,
-    'aerial,photography,reel,virtualtour': 725,
-    'floorplan,photography,reel,virtualtour': 750,
+    'aerial,floorplan,reel,virtualtour': 730,
+    'aerial,photography,reel,virtualtour': 805,
+    'floorplan,photography,reel,virtualtour': 830,
 
     // 5-service bundle (complete package)
-    'aerial,floorplan,photography,reel,virtualtour': 900
+    'aerial,floorplan,photography,reel,virtualtour': 980
   };
 
   // ============================================
