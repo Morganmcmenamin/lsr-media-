@@ -31,9 +31,9 @@
   const services = {
     aerial: { name: 'Aerial Photography', price: 175 },
     floorplan: { name: '3D Floor Plan', price: 200 },
-    reel: { name: 'Cinematic Reel', price: 320 },
+    reel: { name: 'Social Media Reel', price: 320 },
     virtualtour: { name: 'Virtual Tour', price: 250 },
-    photography: { name: 'Classic Photoshoot', price: 300 }
+    photography: { name: 'Classic Photoshoot', price: 325 }
   };
 
   // Bundle Duration Lookup Table (minutes, alphabetically sorted keys)
@@ -86,19 +86,19 @@
     // Single services (no discount)
     'aerial': 175,
     'floorplan': 200,
-    'photography': 300,
+    'photography': 325,
     'reel': 320,
     'virtualtour': 250,
 
     // 2-service bundles
     'aerial,floorplan': 330,
-    'aerial,photography': 400,
+    'aerial,photography': 425,
     'aerial,reel': 420,
     'aerial,virtualtour': 350,
     'floorplan,photography': 450,
     'floorplan,reel': 455,
-    'floorplan,virtualtour': 375,
-    'photography,reel': 530,
+    'floorplan,virtualtour': 300,
+    'photography,reel': 600,
     'photography,virtualtour': 475,
     'reel,virtualtour': 480,
 
@@ -106,7 +106,7 @@
     'aerial,floorplan,photography': 550,
     'aerial,floorplan,reel': 580,
     'aerial,floorplan,virtualtour': 500,
-    'aerial,photography,reel': 700,
+    'aerial,photography,reel': 720,
     'aerial,photography,virtualtour': 575,
     'aerial,reel,virtualtour': 605,
     'floorplan,photography,reel': 730,

@@ -1117,8 +1117,8 @@ p {
 
 .booking-services {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: var(--spacing-md);
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--spacing-sm);
   margin-bottom: var(--spacing-xl);
 }
 
@@ -1126,7 +1126,7 @@ p {
   background-color: var(--color-dark-gray);
   border: 2px solid var(--color-border);
   border-radius: 12px;
-  padding: var(--spacing-lg);
+  padding: var(--spacing-md);
   text-align: center;
   cursor: pointer;
   transition: all var(--transition-fast);
@@ -1143,6 +1143,8 @@ p {
 
 .booking-service-card h3,
 .booking-service-card h4 {
+  font-size: 1.25rem;
+  line-height: 1.25;
   margin-bottom: var(--spacing-xs);
 }
 
