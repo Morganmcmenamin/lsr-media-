@@ -1356,104 +1356,243 @@ p {
   margin-bottom: var(--spacing-sm);
 }
 
-/* Thank You / Booking Confirmed Page */
-.thankyou-section {
-  padding-top: calc(var(--header-height) + var(--spacing-2xl));
-  background: linear-gradient(to bottom, var(--color-dark-gray), var(--color-black));
-  min-height: 70vh;
+/* ============================================
+   Thank You / Booking Confirmed Page
+   ============================================ */
+.confirm {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  background-color: var(--color-black);
+}
+
+/* Left: content column */
+.confirm__content {
   display: flex;
   align-items: center;
+  padding: calc(var(--header-height) + var(--spacing-2xl)) clamp(2rem, 6vw, 6rem) var(--spacing-2xl);
 }
 
-.thankyou-card {
-  max-width: 640px;
-  margin: 0 auto;
-  text-align: center;
+.confirm__inner {
+  width: 100%;
+  max-width: 540px;
 }
 
-.thankyou-icon {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto var(--spacing-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background-color: rgba(76, 175, 80, 0.12);
-  border: 2px solid #4CAF50;
-  color: #4CAF50;
+.confirm__check {
+  width: 56px;
+  height: 56px;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-red);
 }
 
-.thankyou-card h1 {
-  margin: var(--spacing-md) 0 var(--spacing-sm);
-}
-
-.thankyou-lead {
-  color: var(--color-light-gray);
-  font-size: 1.1rem;
-  margin-bottom: var(--spacing-xl);
-}
-
-.thankyou-steps {
-  list-style: none;
-  text-align: left;
-  margin: 0 auto var(--spacing-xl);
-  max-width: 480px;
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-}
-
-.thankyou-steps li {
-  position: relative;
-  padding-left: 1.75rem;
-  color: var(--color-light-gray);
-  line-height: 1.6;
-}
-
-.thankyou-steps li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.55em;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--color-red);
-}
-
-.thankyou-steps strong {
-  color: var(--color-white);
+.confirm__check svg {
+  width: 100%;
+  height: 100%;
   display: block;
 }
 
-.thankyou-contact {
-  padding: var(--spacing-lg);
-  margin-bottom: var(--spacing-xl);
-  background-color: var(--color-dark-gray);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
+.confirm__check circle,
+.confirm__check polyline {
+  stroke-dasharray: 180;
+  stroke-dashoffset: 180;
+  animation: confirm-draw 0.9s ease-out forwards;
 }
 
-.thankyou-contact > p {
-  color: var(--color-light-gray);
-  margin-bottom: var(--spacing-sm);
+.confirm__check polyline {
+  stroke-dasharray: 40;
+  stroke-dashoffset: 40;
+  animation-delay: 0.45s;
 }
 
-.thankyou-contact-links {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: var(--spacing-sm) var(--spacing-lg);
+@keyframes confirm-draw {
+  to { stroke-dashoffset: 0; }
 }
 
-.thankyou-contact-links a {
-  color: var(--color-red);
+.confirm__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.75rem;
   font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--color-light-gray);
+  margin-bottom: var(--spacing-md);
 }
 
-.thankyou-contact-links a:hover {
-  color: #C62828;
+.confirm__eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background-color: var(--color-red);
+}
+
+.confirm__title {
+  font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+}
+
+.confirm__lead {
+  color: var(--color-light-gray);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  max-width: 46ch;
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Numbered steps with hairline dividers */
+.confirm__steps {
+  list-style: none;
+  margin: 0 0 var(--spacing-xl);
+  border-top: 1px solid var(--color-border);
+}
+
+.confirm__steps li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.25rem;
+  align-items: start;
+  padding: var(--spacing-md) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.confirm__step-num {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+  color: var(--color-red);
+  padding-top: 0.15em;
+}
+
+.confirm__step-body h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: 0.25rem;
+}
+
+.confirm__step-body p {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-light-gray);
+  margin: 0;
+}
+
+/* Contact + CTA row */
+.confirm__contact {
+  margin-bottom: var(--spacing-xl);
+}
+
+.confirm__contact-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-light-gray);
+  margin-bottom: 0.75rem;
+}
+
+.confirm__contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+}
+
+.confirm__contact-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-white);
+  transition: color var(--transition-fast);
+}
+
+.confirm__contact-links a svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-red);
+  flex-shrink: 0;
+}
+
+.confirm__contact-links a:hover {
+  color: var(--color-red);
+}
+
+.confirm__cta {
+  width: 100%;
+  max-width: 320px;
+}
+
+/* Right: full-bleed property image */
+.confirm__media {
+  position: relative;
+  background-image: url('../assets/portfolio/aerial-twilight-city.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Seam fade so the image melts into the black content column */
+.confirm__media::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--color-black) 0%, rgba(0, 0, 0, 0.35) 22%, rgba(0, 0, 0, 0) 55%);
+}
+
+.confirm__media-caption {
+  position: absolute;
+  left: var(--spacing-lg);
+  bottom: var(--spacing-lg);
+  z-index: 1;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Tablet / mobile: stack image on top */
+@media (max-width: 900px) {
+  .confirm {
+    grid-template-columns: 1fr;
+  }
+  .confirm__media {
+    order: -1;
+    min-height: 38vh;
+  }
+  .confirm__media::before {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 45%, var(--color-black) 100%);
+  }
+  .confirm__content {
+    padding: var(--spacing-2xl) clamp(1.5rem, 6vw, 3rem) var(--spacing-2xl);
+  }
+  .confirm__inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .confirm__media {
+    min-height: 30vh;
+  }
+  .confirm__cta {
+    max-width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .confirm__check circle,
+  .confirm__check polyline {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
 }
 
 /* Map Container */

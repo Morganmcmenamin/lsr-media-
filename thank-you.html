@@ -75,41 +75,66 @@
   </header>
 
   <!-- Thank You / Confirmation -->
-  <main class="section thankyou-section">
-    <div class="container">
-      <div class="thankyou-card fade-in">
-        <div class="thankyou-icon" aria-hidden="true">
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+  <main class="confirm">
+    <!-- Content -->
+    <section class="confirm__content">
+      <div class="confirm__inner fade-in">
+        <div class="confirm__check" aria-hidden="true">
+          <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="26" cy="26" r="24"/>
+            <polyline points="16 27 23 34 37 19"/>
+          </svg>
         </div>
-        <span class="hero-badge-red">Booking Confirmed</span>
-        <h1>Thank you — your booking is confirmed!</h1>
-        <p class="thankyou-lead">We're looking forward to capturing your property. Here's what happens next.</p>
 
-        <ul class="thankyou-steps">
-          <li>
-            <strong>Check your inbox.</strong>
-            You'll receive a calendar invite and an email confirmation with your appointment details.
-          </li>
-          <li>
-            <strong>Add it to your calendar.</strong>
-            Accept the invite so you don't miss your scheduled time.
-          </li>
-          <li>
-            <strong>We'll be in touch.</strong>
-            The LSR Media team will reach out before the shoot to confirm access and any final details.
-          </li>
-        </ul>
+        <p class="confirm__eyebrow">Booking Confirmed</p>
+        <h1 class="confirm__title">Your shoot is booked.</h1>
+        <p class="confirm__lead">Thank you for choosing LSR Media. We're looking forward to capturing your property at its absolute best — here's what happens next.</p>
 
-        <div class="thankyou-contact">
-          <p>Need to make a change or have a question? Get in touch:</p>
-          <div class="thankyou-contact-links">
-            <a href="mailto:logan@lsrmedia.co.nz">logan@lsrmedia.co.nz</a>
-            <a href="tel:0225068721">022 506 8721</a>
+        <ol class="confirm__steps">
+          <li>
+            <span class="confirm__step-num">01</span>
+            <div class="confirm__step-body">
+              <h3>Check your inbox</h3>
+              <p>A calendar invite and confirmation email are on their way with everything you need.</p>
+            </div>
+          </li>
+          <li>
+            <span class="confirm__step-num">02</span>
+            <div class="confirm__step-body">
+              <h3>Save the date</h3>
+              <p>Accept the invite so your shoot is locked into your calendar.</p>
+            </div>
+          </li>
+          <li>
+            <span class="confirm__step-num">03</span>
+            <div class="confirm__step-body">
+              <h3>We'll be in touch</h3>
+              <p>Our team will reach out before the shoot to confirm access and any final details.</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="confirm__contact">
+          <p class="confirm__contact-label">Need to make a change?</p>
+          <div class="confirm__contact-links">
+            <a href="mailto:logan@lsrmedia.co.nz">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+              logan@lsrmedia.co.nz
+            </a>
+            <a href="tel:0225068721">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              022 506 8721
+            </a>
           </div>
         </div>
 
-        <a href="index.html" class="btn btn-primary">Back to Home</a>
+        <a href="index.html" class="btn btn-primary confirm__cta">Back to Home</a>
       </div>
+    </section>
+
+    <!-- Property imagery -->
+    <div class="confirm__media" role="img" aria-label="A Wellington property photographed by LSR Media at twilight">
+      <span class="confirm__media-caption">Wellington · LSR Media</span>
     </div>
   </main>
 
