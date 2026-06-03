@@ -1356,6 +1356,106 @@ p {
   margin-bottom: var(--spacing-sm);
 }
 
+/* Thank You / Booking Confirmed Page */
+.thankyou-section {
+  padding-top: calc(var(--header-height) + var(--spacing-2xl));
+  background: linear-gradient(to bottom, var(--color-dark-gray), var(--color-black));
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+
+.thankyou-card {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.thankyou-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgba(76, 175, 80, 0.12);
+  border: 2px solid #4CAF50;
+  color: #4CAF50;
+}
+
+.thankyou-card h1 {
+  margin: var(--spacing-md) 0 var(--spacing-sm);
+}
+
+.thankyou-lead {
+  color: var(--color-light-gray);
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-xl);
+}
+
+.thankyou-steps {
+  list-style: none;
+  text-align: left;
+  margin: 0 auto var(--spacing-xl);
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.thankyou-steps li {
+  position: relative;
+  padding-left: 1.75rem;
+  color: var(--color-light-gray);
+  line-height: 1.6;
+}
+
+.thankyou-steps li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-red);
+}
+
+.thankyou-steps strong {
+  color: var(--color-white);
+  display: block;
+}
+
+.thankyou-contact {
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+  background-color: var(--color-dark-gray);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+}
+
+.thankyou-contact > p {
+  color: var(--color-light-gray);
+  margin-bottom: var(--spacing-sm);
+}
+
+.thankyou-contact-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm) var(--spacing-lg);
+}
+
+.thankyou-contact-links a {
+  color: var(--color-red);
+  font-weight: 600;
+}
+
+.thankyou-contact-links a:hover {
+  color: #C62828;
+}
+
 /* Map Container */
 .map-container {
   border-radius: 8px;
