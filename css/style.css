@@ -924,17 +924,14 @@ p {
 }
 
 .portfolio-grid {
-  --masonry-gap: 1.25rem;
-  column-count: 4;
-  column-gap: var(--masonry-gap);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.25rem;
 }
 
 .portfolio-item {
   position: relative;
-  display: block;
-  width: 100%;
-  margin-bottom: var(--masonry-gap);
-  break-inside: avoid;
+  aspect-ratio: 4/3;
   background-color: var(--color-dark-gray);
   border-radius: 12px;
   overflow: hidden;
@@ -943,8 +940,8 @@ p {
 
 .portfolio-item img {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100%;
+  object-fit: cover;
   transition: transform var(--transition-slow);
 }
 
@@ -2474,8 +2471,8 @@ a.contact-value:hover {
 
   /* Portfolio */
   .portfolio-grid {
-    --masonry-gap: 1rem;
-    column-count: 2;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 
   .portfolio-item {
@@ -2702,8 +2699,8 @@ a.contact-value:hover {
 
   /* Portfolio single column on very small screens */
   .portfolio-grid {
-    --masonry-gap: 1rem;
-    column-count: 1;
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .portfolio-item {
@@ -2836,7 +2833,8 @@ a.contact-value:hover {
 
   /* Portfolio: 5 columns on large desktops */
   .portfolio-grid {
-    column-count: 5;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.25rem;
   }
 
   /* Section headings */
@@ -2941,8 +2939,8 @@ a.contact-value:hover {
 
   /* Portfolio: 5 columns on extra-wide screens */
   .portfolio-grid {
-    --masonry-gap: 1.5rem;
-    column-count: 5;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
   }
 
   /* Page hero sections taller */
@@ -3116,8 +3114,8 @@ a.contact-value:hover {
 
   /* Portfolio: 5 columns on 2560-wide screens */
   .portfolio-grid {
-    --masonry-gap: 1.5rem;
-    column-count: 5;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
   }
 
   /* Page hero sections */
@@ -3266,7 +3264,7 @@ a.contact-value:hover {
   }
 
   .portfolio-grid {
-    --masonry-gap: 1.5rem;
-    column-count: 6;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.5rem;
   }
 }
