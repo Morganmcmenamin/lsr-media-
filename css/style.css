@@ -16,7 +16,7 @@
   --color-red: #E53935;
   --color-dark-gray: #1A1A1A;
   --color-gray: #333333;
-  --color-light-gray: #888888;
+  --color-light-gray: #A0A0A0;
   --color-border: #2A2A2A;
 
   /* Typography */
@@ -1314,6 +1314,19 @@ p {
   border-color: var(--color-red);
 }
 
+/* Visible keyboard focus ring on all interactive elements (mouse users unaffected) */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+.filter-btn:focus-visible,
+.portfolio-item:focus-visible,
+.service-card:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-red);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
 .form-group textarea {
   min-height: 120px;
   resize: vertical;
@@ -1599,6 +1612,17 @@ p {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  /* Ensure scroll-reveal content is shown instantly, never left hidden */
+  .fade-in {
+    opacity: 1 !important;
+    transform: none !important;
+  }
   .confirm__check circle,
   .confirm__check polyline {
     animation: none;
