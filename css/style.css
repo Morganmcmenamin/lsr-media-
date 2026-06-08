@@ -924,14 +924,17 @@ p {
 }
 
 .portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.25rem;
+  --masonry-gap: 1.25rem;
+  column-count: 4;
+  column-gap: var(--masonry-gap);
 }
 
 .portfolio-item {
   position: relative;
-  aspect-ratio: 4/3;
+  display: block;
+  width: 100%;
+  margin-bottom: var(--masonry-gap);
+  break-inside: avoid;
   background-color: var(--color-dark-gray);
   border-radius: 12px;
   overflow: hidden;
@@ -940,8 +943,8 @@ p {
 
 .portfolio-item img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  display: block;
   transition: transform var(--transition-slow);
 }
 
@@ -2471,8 +2474,8 @@ a.contact-value:hover {
 
   /* Portfolio */
   .portfolio-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-sm);
+    --masonry-gap: 1rem;
+    column-count: 2;
   }
 
   .portfolio-item {
@@ -2699,8 +2702,8 @@ a.contact-value:hover {
 
   /* Portfolio single column on very small screens */
   .portfolio-grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-sm);
+    --masonry-gap: 1rem;
+    column-count: 1;
   }
 
   .portfolio-item {
@@ -2833,8 +2836,7 @@ a.contact-value:hover {
 
   /* Portfolio: 5 columns on large desktops */
   .portfolio-grid {
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1.25rem;
+    column-count: 5;
   }
 
   /* Section headings */
@@ -2939,8 +2941,8 @@ a.contact-value:hover {
 
   /* Portfolio: 5 columns on extra-wide screens */
   .portfolio-grid {
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1.5rem;
+    --masonry-gap: 1.5rem;
+    column-count: 5;
   }
 
   /* Page hero sections taller */
@@ -3114,8 +3116,8 @@ a.contact-value:hover {
 
   /* Portfolio: 6 columns on ultra-wide screens */
   .portfolio-grid {
-    grid-template-columns: repeat(6, 1fr);
-    gap: 1.5rem;
+    --masonry-gap: 1.5rem;
+    column-count: 6;
   }
 
   /* Page hero sections */

@@ -168,6 +168,48 @@
   // Portfolio Lightbox
   // ============================================
 
+  // Track the element that opened the lightbox so focus can return to it on close
+  let lightboxTrigger = null;
+
+  // Mark the lightbox as a modal dialog and make its close control accessible
+  if (lightbox) {
+    lightbox.setAttribute('role', 'dialog');
+    lightbox.setAttribute('aria-modal', 'true');
+    lightbox.setAttribute('aria-label', 'Image viewer');
+  }
+  if (lightboxClose) {
+    lightboxClose.setAttribute('tabindex', '0');
+    lightboxClose.setAttribute('role', 'button');
+    lightboxClose.setAttribute('aria-label', 'Close image viewer');
+    lightboxClose.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        closeLightbox();
+      }
+    });
+  }
+
+  // Keep keyboard focus inside the lightbox while it is open
+  lightbox?.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab' || !lightbox.classList.contains('active')) return;
+    const focusable = lightbox.querySelectorAll(
+      'a[href], button, [tabindex]:not([tabindex="-1"])'
+    );
+    if (focusable.length === 0) {
+      e.preventDefault();
+      return;
+    }
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  });
+
   portfolioItems.forEach(item => {
     // Make each tile keyboard-focusable and announced as a button
     item.setAttribute('tabindex', '0');
@@ -190,8 +232,10 @@
         }
       }
 
+      lightboxTrigger = item;
       lightbox?.classList.add('active');
       document.body.style.overflow = 'hidden';
+      lightboxClose?.focus();
     };
 
     item.addEventListener('click', openLightbox);
@@ -206,6 +250,9 @@
   function closeLightbox() {
     lightbox?.classList.remove('active');
     document.body.style.overflow = '';
+    // Return focus to the tile that opened the viewer
+    lightboxTrigger?.focus();
+    lightboxTrigger = null;
   }
 
   lightboxClose?.addEventListener('click', closeLightbox);
