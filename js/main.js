@@ -349,8 +349,6 @@
     'commercial-aerial': 'Aerial Photography',
     'commercial-reel': 'Social Media Reel',
     'commercial-graphic-design': 'Graphic Design',
-    'commercial-booklets': 'Booklets & Pamphlets',
-    'commercial-signage': 'Building Signage',
     'commercial-virtualtour': 'Virtual Tour',
     'commercial-floorplan': '3D Floor Plan'
   };
