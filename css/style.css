@@ -826,8 +826,19 @@ p {
   margin-bottom: 0.25rem;
 }
 
+/* Commercial blocks have no price line, so the heading would sit right on top
+   of the description. Give it room to breathe. This matches ONLY when a <p>
+   directly follows the <h2> (commercial); residential keeps its tight
+   title->price pairing because there the <h2> is followed by
+   .service-detail-price, not a <p>. */
+.service-detail-text h2 + p {
+  margin-top: var(--spacing-sm);
+}
+
 .service-detail-text p {
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
+  max-width: 60ch;
+  line-height: 1.6;
 }
 
 .service-detail-price {
