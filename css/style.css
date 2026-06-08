@@ -3012,7 +3012,7 @@ a.contact-value:hover {
 /* --- 2560px+ — QHD / 4K / Ultrawide / iMac 27" / Studio Display --- */
 @media (min-width: 2560px) {
   :root {
-    --container-max: 1800px;
+    --container-max: 2100px;
     --spacing-3xl: 10rem;
     --spacing-2xl: 6rem;
     --spacing-xl: 4rem;
@@ -3114,10 +3114,10 @@ a.contact-value:hover {
     padding: 0.75rem 0;
   }
 
-  /* Portfolio: 6 columns on ultra-wide screens */
+  /* Portfolio: 5 columns on 2560-wide screens */
   .portfolio-grid {
     --masonry-gap: 1.5rem;
-    column-count: 6;
+    column-count: 5;
   }
 
   /* Page hero sections */
@@ -3256,5 +3256,17 @@ a.contact-value:hover {
   .form-group textarea {
     padding: 1.2rem;
     font-size: 1.05rem;
+  }
+}
+
+/* 4K and wider: widen the content so it fills the screen, add a sixth column */
+@media (min-width: 3840px) {
+  :root {
+    --container-max: 2800px;
+  }
+
+  .portfolio-grid {
+    --masonry-gap: 1.5rem;
+    column-count: 6;
   }
 }
