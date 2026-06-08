@@ -1008,6 +1008,17 @@ p {
 .lightbox-content {
   max-width: 90%;
   max-height: 90%;
+  display: flex;
+}
+
+.lightbox-content img {
+  display: block;
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
 }
 
 .lightbox-close {
