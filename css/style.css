@@ -925,8 +925,8 @@ p {
 
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: var(--spacing-lg);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.25rem;
 }
 
 .portfolio-item {
@@ -2807,9 +2807,10 @@ a.contact-value:hover {
     gap: var(--spacing-3xl);
   }
 
-  /* Portfolio: slightly larger minimum cell */
+  /* Portfolio: 5 columns on large desktops */
   .portfolio-grid {
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.25rem;
   }
 
   /* Section headings */
@@ -2912,10 +2913,10 @@ a.contact-value:hover {
     padding: 0.6rem 0;
   }
 
-  /* Portfolio: 3 larger cells */
+  /* Portfolio: 5 columns on extra-wide screens */
   .portfolio-grid {
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    gap: var(--spacing-xl);
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
   }
 
   /* Page hero sections taller */
@@ -3087,10 +3088,10 @@ a.contact-value:hover {
     padding: 0.75rem 0;
   }
 
-  /* Portfolio: 4 columns */
+  /* Portfolio: 6 columns on ultra-wide screens */
   .portfolio-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--spacing-xl);
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.5rem;
   }
 
   /* Page hero sections */
