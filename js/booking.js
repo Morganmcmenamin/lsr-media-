@@ -371,6 +371,12 @@
     updateCart();
   });
 
+  // Cart bar "Continue" button -> scroll down to the details form
+  const cartContinueBtn = document.getElementById('cart-continue');
+  cartContinueBtn?.addEventListener('click', () => {
+    bookingForm?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
   // Form submission -> redirect to Cal.com
   bookingForm?.addEventListener('submit', (e) => {
     e.preventDefault();

@@ -1246,6 +1246,11 @@ p {
   font-size: 0.85rem;
 }
 
+.cart-continue {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
 /* Large Property Checkbox */
 .large-property-option {
   background-color: var(--color-dark-gray);
@@ -2557,6 +2562,10 @@ a.contact-value:hover {
 
   .cart-bundle {
     font-size: 1.25rem;
+  }
+
+  .cart-continue {
+    width: 100%;
   }
 
   /* Large property option */
