@@ -2377,7 +2377,12 @@ a.contact-value:hover {
 
   /* Hero fixes */
   .hero {
+    /* svh (not vh): in-app browsers (Facebook/Instagram) resize vh as their
+       toolbars show/hide, which made the hero jump and pushed the badge
+       under the fixed header */
+    height: auto;
     min-height: 100svh;
+    padding-top: calc(var(--header-height) + var(--spacing-lg));
     padding-left: var(--spacing-md);
     padding-right: var(--spacing-md);
     align-items: flex-end;
